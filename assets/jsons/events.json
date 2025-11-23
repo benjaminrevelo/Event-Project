@@ -12,7 +12,7 @@
         "id": "evt-002",
         "title": "LOVE Week Serve Event",
         "location": "Charlotte Community Center",
-        "startTime": "2025-03-05T14: 00: 00Z",
+        "startTime": "2025-03-05T14:00:00Z",
         "category": "Outreach",
         "description": "Serve with our team as we partner with a local nonprofit for LOVE Week.",
         "isFavorite": false
@@ -30,7 +30,7 @@
         "id": "evt-004",
         "title": "Youth Takeover Night",
         "location": "Elevation Matthews", 
-        "startTime": "2025-03-15T18: 30: 00Z", 
+        "startTime": "2025-03-15T18:30:00Z", 
         "category": "Youth", 
         "description": "A high-energy night for our Elevation Youth with worship, games, and community.", 
         "isFavorite":false
