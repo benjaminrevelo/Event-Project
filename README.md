@@ -31,10 +31,12 @@
    Ensure you have Android Studio, Xcode, or a simulator/emulator is set up for your platform
 
   # Clone Repository
+  Run the following commands: <br>
    git clone https://github.com/benjaminrevelo/Event-Project.git <br>
    cd event_project
 
-  # Get dependencies
+  # Get dependencies 
+  Run the following commands: <br>
    flutter pub get <br>
    flutter run 
   
