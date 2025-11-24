@@ -1,30 +1,30 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
+import 'package:event_project/models/event.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:event_project/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  group('Event model favorite toggle', () {
+    test('toggleFavorite should switch favorite from false to true and back', () {
+      //create a sample event
+      final testevent = Event(
+        id: '1',
+        name: 'Test Event',
+        description: 'Description',
+        location: 'Location',
+        time: DateTime.now(),
+        isFavorite: false,
+      );
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+      //Initially, favorite is equal to false
+      expect(testevent.isFavorite, false);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+      //toggle favorite 
+      testevent.toggleIsFav();
+      expect(testevent.isFavorite, true);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+      //toggle again
+      testevent.toggleIsFav();
+      expect(testevent.isFavorite, false);
+    });
   });
 }

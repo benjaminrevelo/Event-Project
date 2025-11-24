@@ -22,11 +22,11 @@ class _EventDetailsState extends State<EventDetails> {
   }
 
   void toggleFavorite() {
-    setState(() {
-      isFavorite = !isFavorite;
-      widget.event.isFavorite = isFavorite;
-    });
-  }
+  setState(() {
+    widget.event.toggleIsFav();
+    isFavorite = widget.event.isFavorite;
+  });
+}
 
   @override
   Widget build(BuildContext context) {
