@@ -2,43 +2,65 @@
 
   A simple Flutter application that displays events loaded from a JSON file. Users can view event details and mark events as favorites.
 
-# State Management Approach
+# State Management 
 
-  For this project, I chose setState for state management. The application is small and does not require complex handling. setState is sufficient for toggling the favorite status and updating the UI.
+  This project uses setState, since the app is small and does not require complex state handling. setState is sufficient for updating UI components such as the favorite toggle, and keeps the project lightweight and easy to understand.
 
-# Project Structure Scalability
+# Project Structure & Scalability
 
-  I structured the project by dividing everything in their respective folders.
-  Example: the json file resides in a subfolder called "jsons" and "jsons" resides in a folder called assets. I chose this approach throughout to matain a clean folder structure and easy navigation.
+  This project is organized into clear folders to keep everything maintainable: <br>
+  - assets/jsons/events.json - contains event data <br>
+  - models/ - event model <br>
+  - screens/ - UI screens
 
-# GraphQL
+  This structure makes it easy to scale and allows new features to be added in an organized way.
 
- GraphQL would live in a service layer and it would be separated from the UI. This layer would handle queries or fetching the events from a server. Screens would call the service and update the UI via state      management.
- Example: UI calls EventService.getEvents() and service executes a GraphQL query to return a list of Events.
+# GraphQL Integration
 
-# Improvements with more time
+ If the app were to use GraphQL in the future, it would live inside a dedicated service layer, separated from the UI.
 
- I would first update the UI and make it more appealing and reusable by adding theme and text files for global use throughout the application, make an administrator screen to easily post new upcoming events, add a    past events screen, when the user adds an event to favorites they could opt to receive push notifications for reminders, add a end time to remove past events from the home screen automatically. 
+ Example: <br>
+   - UI calls: EventService.getEvents() <br>
+   - Service executes GraphQL query <br>
+   - Service returns a list of Event objects <br>
+ This separation improves testability and keeps UI clean.
 
-# Trade-offs and limitations
+# Potential Improvements
 
- Some trades offs and limitations are the app relies on JSON file so the data is not persistent when the app launches, setState works but can become hard to manage as the app grows. The UI design uses Material widgets so it does not fully adapt to IOS, and the syle is not reusable. 
+ With additional time, I would enhance the project by: <br>
+   - Improving styling with global themes and reusable text styles <br>
+   - Adding an admin screen to create upvoming events <br>
+   - Adding a "past events" screen <br>
+   - Adding push notification reminders for favorited events <br>
+   - Including an event end time so outdated events are removed automatically <br>
+   - Making the design more adaptive for iOS
+
+# Trade-offs and Limitations
+
+  - Data comes from a local JSON file, so it is not persistent across app restarts <br>
+  - setState works well here but becomes harder to maintain as the app grows <br>
+  - UI is built with Material widgets, so iOS adaption is limited <br>
+  - Styling is minimal and not fully reusable yet
 
 # How to run the project 
 
   # Prerequisites
-   Install Flutter (SDK version 3.10 or higher).
-   Ensure you have Android Studio, Xcode, or a simulator/emulator is set up for your platform
+   - Install Flutter (SDK version 3.10 or higher) <br>
+   - Ensure you have Android Studio, Xcode, or a simulator/emulator is set up for your platform <br>
+   - Git installed
 
   # Clone Repository
   Run the following commands: <br>
-   git clone https://github.com/benjaminrevelo/Event-Project.git <br>
-   cd event_project
+   - git clone https://github.com/benjaminrevelo/Event-Project.git <br>
+   - cd event_project
 
   # Get dependencies 
-  Run the following commands: <br>
-   flutter pub get <br>
-   flutter run 
+  Run the following command: <br>
+   - flutter pub get
+
+  # Run the app
+  Run the following command: <br>
+   - flutter run 
   
 
   
