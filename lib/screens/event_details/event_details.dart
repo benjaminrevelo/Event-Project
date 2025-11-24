@@ -1,7 +1,9 @@
 import 'package:event_project/models/event.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
-///Event deatils screen, displays all the information about a selected event.
+///Event details screen, displays all the information about a selected event.
 
 class EventDetails extends StatefulWidget {
   const EventDetails({super.key, required this.event});
@@ -34,7 +36,9 @@ class _EventDetailsState extends State<EventDetails> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Event Details"),
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: Text("Event Details", style: TextStyle(fontFamily: GoogleFonts.dmSans().fontFamily, color: Colors.white)),
+        backgroundColor: Colors.black,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -44,14 +48,15 @@ class _EventDetailsState extends State<EventDetails> {
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(16),
-              color: Colors.white,
+              color: Colors.transparent,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
                     child: Text(
                       event.name,
-                      style: const TextStyle(
+                      style: TextStyle(
+                        fontFamily: GoogleFonts.dmSans().fontFamily,
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
@@ -71,11 +76,14 @@ class _EventDetailsState extends State<EventDetails> {
 
             if (event.category != null) ...[
               const SizedBox(height: 8),
-              Text(
-                "Category: ${event.category}",
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
+              Center(
+                child: Text(
+                  "Category: ${event.category}",
+                  style: TextStyle(
+                    fontFamily: GoogleFonts.dmSans().fontFamily,
+                    fontSize: 16,
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ],
@@ -86,13 +94,14 @@ class _EventDetailsState extends State<EventDetails> {
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(16),
-              color: Colors.white,
+              color: Colors.transparent,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                   Text(
                     "Location",
                     style: TextStyle(
+                      fontFamily: GoogleFonts.dmSans().fontFamily,
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                       color: Colors.black,
@@ -100,13 +109,14 @@ class _EventDetailsState extends State<EventDetails> {
                   ),
                   Text(
                     event.location,
-                    style: const TextStyle(color: Colors.black),
+                    style: TextStyle(fontFamily: GoogleFonts.dmSans().fontFamily,color: Colors.black),
                   ),
                   const SizedBox(height: 16),
 
-                  const Text(
+                  Text(
                     "Description",
                     style: TextStyle(
+                      fontFamily: GoogleFonts.dmSans().fontFamily,
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                       color: Colors.black,
@@ -114,21 +124,22 @@ class _EventDetailsState extends State<EventDetails> {
                   ),
                   Text(
                     event.description,
-                    style: const TextStyle(color: Colors.black),
+                    style: TextStyle(fontFamily: GoogleFonts.dmSans().fontFamily, color: Colors.black),
                   ),
                   const SizedBox(height: 16),
 
-                  const Text(
+                  Text(
                     "Time",
                     style: TextStyle(
+                      fontFamily: GoogleFonts.dmSans().fontFamily,
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                       color: Colors.black,
                     ),
                   ),
                   Text(
-                    event.time.toString(),
-                    style: const TextStyle(color: Colors.black),
+                    DateFormat('MMM dd, yyyy - h:mm a').format(event.time),
+                    style: TextStyle(fontFamily: GoogleFonts.dmSans().fontFamily, color: Colors.black),
                   ),
                 ],
               ),
