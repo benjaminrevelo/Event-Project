@@ -1,7 +1,9 @@
 import 'package:event_project/models/event.dart';
 import 'package:event_project/screens/event_details/event_details.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 ///The homescreen, displays the events loaded from JSON file.
 
@@ -35,7 +37,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Events"), centerTitle: true),
+      appBar: AppBar(title: Text("Events", style: TextStyle(fontFamily: GoogleFonts.dmSans().fontFamily, color: Colors.white),), centerTitle: true, backgroundColor: Colors.black,),
 
       body: !_loaded
           ? const Center(child: CircularProgressIndicator())
@@ -52,12 +54,13 @@ class _HomeState extends State<Home> {
                       child: ListTile(
                         title: Text(
                           event.name,
-                          style: const TextStyle(
+                          style: TextStyle(
+                            fontFamily: GoogleFonts.dmSans().fontFamily,
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        subtitle: Text('${event.location} - ${event.time.toIso8601String()}'),
+                        subtitle: Text('${event.location}\n${DateFormat('MMM dd, yyyy - h:mm a').format(event.time)}'),
                         trailing: const Icon(Icons.chevron_right),
                         onTap: () {
                           Navigator.push(
