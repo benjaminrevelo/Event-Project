@@ -21,6 +21,10 @@ class Event {
   final String? category;
   bool isFavorite;
 
+  void toggleIsFav() {
+    isFavorite = !isFavorite;
+  }
+
   factory Event.fromJson(Map<String, dynamic> json) {
     return Event(
       id: json["id"],
